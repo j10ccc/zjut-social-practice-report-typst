@@ -1,4 +1,6 @@
 #import "layout/cover.typ": cover
+#import "layout/catalog.typ": catalog
+#import "/constants/fonts.typ": font_family
 
 #let meta = (
   department: "$学院",
@@ -10,4 +12,16 @@
   date: "$完成日期"
 )
 
+// cover
+
 #cover(meta)
+
+#pagebreak()
+
+// catalog
+
+#set heading(numbering: "1.")
+
+#catalog()
+
+#pagebreak()
