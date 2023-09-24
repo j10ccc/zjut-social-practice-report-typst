@@ -35,7 +35,7 @@ $ typst fonts
 
 2. Get start from `/main.typ`, edit the `meta` to customize your information displayed in report cover. You can delete or add some keys & values.
 
-```
+```typst
 #let meta = (
   "姓       名": "$姓名",
   "指导老师": "$指导老师",
@@ -48,8 +48,66 @@ $ typst fonts
 
 4. Compile your work by
 
-```
+```sh
 $ typst compile main.typ
+```
+
+## Further
+
+For more customized feature, you could read following suggestions.
+
+### Image
+
+Attach image file in the end of the report.
+
+```typst
+// /main.typ
+
+// ...report content
+
+#image("/assets/photo_1.jpg")
+
+// also a grid layout
+
+#grid(
+  columns: (auto, auto),
+  gutter: 16pt,
+  image("/assets/photo_1.jpg"),
+  image("/assets/photo_2.jpg"),
+  image("/assets/photo_3.jpg"),
+  image("/assets/photo_4.jpg"),
+)
+```
+
+### Page header
+
+Display report title in pages header besides cover and catalog.
+
+```typst
+// /main.typ
+#let meta = (
+  "实践报告": "一个响亮的报告名"
+)
+```
+
+```typst
+// /layout/project.typ
+
+set page(
+  // ...
+  header: {
+    locate(loc => {
+      if loc.page() >= 3 { // content starts from 3th page
+        align(right)[
+          #text(size: 10pt)[
+            #meta.named().at("实践报告") | 社会实践报告 // get value from your meta
+          ]
+        ]
+      }
+    })
+  }
+)
+
 ```
 
 ## Reference
