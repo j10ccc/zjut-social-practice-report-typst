@@ -6,6 +6,10 @@
   body,
   ..meta
 ) = {
+  set page(
+    paper: "a4",
+    numbering: "1"
+  )
   set heading(numbering: "1.")
   set text(
     size: 11pt,
