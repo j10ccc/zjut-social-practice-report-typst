@@ -2,7 +2,7 @@
   let table(kv) = {
     for (key, value) in kv [
       #grid(
-        columns: (auto, 200pt),
+        columns: (80pt, auto),
         gutter: 4pt,
         rect(
           width: 100%,
@@ -17,6 +17,7 @@
           text(size: 16pt, value, bottom-edge: "descender")
         )
       )
+      #v(1em)
     ]
   }
 
@@ -28,7 +29,7 @@
     ]
     
     #align(bottom)[
-      #rect(width: 300pt, stroke: none)[
+      #rect(width: 360pt, stroke: none)[
         #table(meta)
       ]
     ]
